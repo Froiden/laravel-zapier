@@ -50,6 +50,8 @@ SendConversionsToZapierWebhook::dispatch($data + [
         'utm_term' => Cookie::get('utm_term', ''),
         'gclid_' => Cookie::get('gclid', ''),
         'cid' => Cookie::get('cid', ''),
+        'form_name' => $data['source'],
+        'form_id' => $this->formId,
     ])
     ->delay(5)
     ->onQueue('low');
